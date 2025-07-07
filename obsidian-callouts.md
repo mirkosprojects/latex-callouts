@@ -70,7 +70,7 @@ header-includes:
 > Callout Content
 
 > [!TIP]
-> No title
+> No title provided
 
 > [!TIP] Nested Callouts
 > 

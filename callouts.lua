@@ -23,6 +23,10 @@ function BlockQuote(elem)
     return nil
   end
 
+  if not title or title == "" then
+    title = callout_key:lower():gsub("^%l", string.upper)
+  end
+
   -- Get color and icon macros
   local key = callout_key:upper()
   local color_macro = "calloutColor" .. key
