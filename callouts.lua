@@ -1,26 +1,43 @@
-function BlockQuote(elem)
-  local first_block = elem.content[1]
-  
-  if first_block.t == "Para" then
-    local first_str = pandoc.utils.stringify(first_block.content)
-    local callout_key, title = first_str:match("^%[!(%a+)%]%s*(.*)")
-
-    if callout_key then
-      local key = callout_key:upper()
-      local color_macro = "calloutColor" .. key
-      local icon_macro = "\\calloutIcon" .. key
-
-      local new_blocks = {}
-      table.insert(new_blocks, pandoc.RawBlock("latex",
-        string.format("\\begin{callout}{%s}{%s\\hspace{0.5em}%s}", color_macro, icon_macro, title)
-      ))
-      for i = 2, #elem.content do
-        table.insert(new_blocks, elem.content[i])
-      end
-      table.insert(new_blocks, pandoc.RawBlock("latex", "\\end{callout}"))
-
-      return new_blocks
+local function split_softbreak(elems)
+  for i, el in ipairs(elems) do
+    if el.t == "SoftBreak" then
+      return {table.unpack(elems, 1, i)}, {table.unpack(elems, i + 1)}
     end
   end
-  return nil
+  return elems, {}
+end
+
+function BlockQuote(elem)
+  local first_block = elem.content[1]
+  local before, after = split_softbreak(first_block.content)
+
+  if not first_block.t == "Para" then
+    return nil
+  end
+
+  -- Get callout key and title from first block
+  local first_str = pandoc.utils.stringify(before)
+  local callout_key, title = first_str:match("^%[!(%a+)%]%s*(.-)%s*$")
+
+  if not callout_key then
+    return nil
+  end
+
+  -- Get color and icon macros
+  local key = callout_key:upper()
+  local color_macro = "calloutColor" .. key
+  local icon_macro = "\\calloutIcon" .. key
+
+  -- Insert content into callout block
+  local new_blocks = {}
+  table.insert(new_blocks, pandoc.RawBlock("latex",
+    string.format("\\begin{callout}{%s}{%s\\hspace{0.5em}%s}", color_macro, icon_macro, title)
+  ))
+  table.insert(new_blocks, after)
+  for i = 2, #elem.content do
+    table.insert(new_blocks, elem.content[i])
+  end
+  table.insert(new_blocks, pandoc.RawBlock("latex", "\\end{callout}"))
+
+  return new_blocks
 end

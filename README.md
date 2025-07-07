@@ -19,7 +19,6 @@ Place the `callouts.lua` in your pandoc filters folder.
 - **Windows**: `C:\Users\USERNAME\AppData\Roaming\pandoc\filters\`
 
 > [!NOTE]
-> 
 > If the folders don't exist, you have to create them manually
 
 ### Local Installation
@@ -42,7 +41,6 @@ Copy the `header-includes` YAML metadata from `github-alerts.md` or `obsidian-ca
 Write your callouts in the format:
 ```md
 > [!NOTE] Callout Title
-> 
 > Callout Content
 ```
 See the `github-alerts.md` and `obsidian-callouts.md` for details.

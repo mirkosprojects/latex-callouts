@@ -46,47 +46,36 @@ header-includes:
 ...
 
 > [!TIP] Tip
-> 
 > Callout Content
 
 > [!NOTE] Note
-> 
 > Callout Content
 
 > [!INFO] Info
-> 
 > Callout Content
 
 > [!WARNING] Warning
-> 
 > Callout Content
 
 > [!CAUTION] Caution
-> 
 > Callout Content
 
 > [!ERROR] Error
-> 
 > Callout Content
 
 > [!IMPORTANT] Callout
-> 
 > Callout Content
 
 > [!TIP]- Foldable
-> 
 > Callout Content
 
 > [!TIP]
-> 
 > No title
 
 > [!TIP] Nested Callouts
 > 
 > > [!INFO] First One
-> > 
 > > You can nest callouts...
 > > 
 > > > [!IMPORTANT] Second One
-> > > 
 > > > ...as deep as you want
