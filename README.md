@@ -10,7 +10,7 @@ This lua-filter uses the mdframed package to create custom callouts looking simi
 
 Clone the project.
 ```sh
-git clone LINK
+git clone https://github.com/mirkosprojects/latex-callouts.git
 ```
 
 ### Global Installation (Recommended)
