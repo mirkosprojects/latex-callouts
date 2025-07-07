@@ -1,0 +1,1 @@
+pandoc github-alerts.md --lua-filter=callouts.lua -o github-alerts.pdf

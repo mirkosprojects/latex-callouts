@@ -1,0 +1,1 @@
+pandoc obsidian-callouts.md --lua-filter=callouts.lua -o obsidian-callouts.pdf
