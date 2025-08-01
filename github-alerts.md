@@ -4,7 +4,6 @@ header-includes:
   - \usepackage{xcolor}
   - \usepackage{fontawesome5}
   - \usepackage[framemethod=TikZ]{mdframed}
-  - \usepackage{etoolbox}
   - \usepackage{tikz}
   - \definecolor{calloutColorTIP}{HTML}{44cf6e}
   - \newcommand{\calloutIconTIP}{\faLightbulb}
