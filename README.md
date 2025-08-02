@@ -54,7 +54,7 @@ You can add custom callout styles by adding them to the `header-includes`:
 - \newcommand{\calloutIcon<NAME>}{<ICON>}
 ```
 - Replace `<NAME>` with the name of your custom callout
-- Replace `<NAME>` with a hex color value
+- Replace `<COLOR>` with a hex color value
 - Replace `<ICON>` with any [fontawesome5](https://mirror.dogado.de/tex-archive/fonts/fontawesome5/doc/fontawesome5.pdf) icon
 
 Use the callout as follows:
